@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{%extends "base.html"%}
+{%load staticfiles%}
+
+{%block bodyblock %}
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+  <title>Index</title>
+</head>
+<body>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center blue-text darken-1">Section A</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Imported Materialize For Quick Front End Development</h5>
+      </div>
+
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Speed Up Your Recall!</h5>
+
+            <p class="light">Research has shown that regular quizzing involving problem solving and recall can preserve memory integrity into old age, so why not use our free service where you will have fun, learn stuff, and do yourself a favour all at the same time!</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Social</h5>
+
+            <p class="light">Compare your score with other users, compete on the leaderboard for the "I am smarter than a Glasgow University Student" cup (current top place is a Glasgow University alumnus, sadly), and be a part of the community by submitting new topics and questions for suggestion!</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to use</h5>
+
+            <p class="light">We have provided detailed documentation, tutorials, F.A.Q.'s, and even a forum for community support so that even the most dedicated techno-phobe can use our service - we swear on it!'</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+
+
+
+  <!--  Scripts-->
+  <script src="{%static 'js/materialize.js'%}"></script>
+
+
+  </body>
+{%endblock%}
+</html>

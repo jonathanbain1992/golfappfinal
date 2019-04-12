@@ -1,0 +1,66 @@
+{% load staticfiles %}
+{%load static%}
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link href= "{%static 'css/materialize.css'%}" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+</head>
+<body>
+<!-- navagaton bar -->
+<nav class="light-blue lighten-1" role="navigation">
+  <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">RUSmarterThanAGUStudent?</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#">Sign Up / Register</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="sidenav">
+      <li><a href="#">About Us</a></li>
+    </ul>
+    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">Profile Stuff To Go Here...</i></a>
+  </div>
+</nav>
+   {%block bodyblock%}
+   {%endblock%}
+
+   <footer class="page-footer blue">
+     <div class="container">
+       <div class="row">
+         <div class="col l6 s12">
+           <h5 class="white-text">About Us</h5>
+           <p class="grey-text text-lighten-4">We are a team of really lazy students at Glasgow Caledonian University, and we wanted to make a pretty looking website in less time, so we used Materialize-CSS to speed up our front end development. Hurrah!.</p>
+
+
+         </div>
+         <div class="col l3 s12">
+           <h5 class="white-text">Boring Info</h5>
+           <ul>
+             <li><a class="white-text" href="#!">End User License Agreement</a></li>
+             <li><a class="white-text" href="#!"> Copyright</a></li>
+             <li><a class="white-text" href="#!">Our GitHub</a></li>
+             <li><a class="white-text" href="#!">Glasgow Caledonian University</a></li>
+           </ul>
+         </div>
+         <div class="col l3 s12">
+           <h5 class="white-text">Useful Info</h5>
+           <ul>
+             <li><a class="white-text" href="#!">Tutorial</a></li>
+             <li><a class="white-text" href="#!">How To...</a></li>
+             <li><a class="white-text" href="#!">F.A.Q.</a></li>
+             <li><a class="white-text" href="#!">Privacy Policy</a></li>
+           </ul>
+         </div>
+       </div>
+     </div>
+     <div class="footer-copyright">
+       <div class="container">
+    <div class="white-text">   Copyright Ⓒ <a href="#" class="white-text">AreYouSmarterThanAGUStudent Enterprises</a> </div>
+       </div>
+     </div>
+   </footer>
+
+     <script src="{%static 'js/materialize.js'%}"></script>
+      <script src="{%static 'js/jquery1.4.1.js'%}"></script>
+</body>
+</html>
