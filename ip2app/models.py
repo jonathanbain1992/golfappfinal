@@ -117,5 +117,32 @@ class TeamTournament(models.Model):
     tournamentName = models.CharField(max_length=200)
     tournament = models.ForeignKey('Tournament', on_delete=models.CASCADE)
     GolfTeams = models.ManyToManyField('GolfTeam')
+
+    #@XXX: yesss, yess, yes, I know this code is an absolute steaming pile of crap, but I was going insane
+    #      parsing this string out and it was a hot day, adding to my frustration so go on, laugh, It's okay, I'm okay
+    #      with you doing that, it's fine. I'm just glad I can get on with the web app's development.
+    #@TODO: ps: seriously though, I should probably clean this up some time... Probably won't but who knows?!
     def __str__(self):
-        return self.tournamentName+", "+self.GolfTeams+", "+str(self.tournament.dateTimeStart)+" : "+str(self.tournament.dateTimeFinish)
+        querySetList = list(self.GolfTeams.all().values_list())
+        i=0
+        querySetTeamsStr = " "
+        while i < len(querySetList):
+            out = str(querySetList[i][2])+", "
+            querySetTeamsStr += out
+            i +=1
+        querySetTeamsStr+="   "
+        i=0
+        querySetTimeStr = ""
+        while i < len(querySetList):
+            querySetTimeStr += str(querySetList[i][3])
+            if i == 0:
+                querySetTimeStr+= " until "
+            i +=1
+        querySetTimeStr+="."
+        querySetStr = querySetTeamsStr+querySetTimeStr
+        return self.tournamentName+","+querySetStr#+str(self.tournament.dateTimeStart)+" : "+str(self.tournament.dateTimeFinish)
+
+class TeamMatch(models.Model):
+    teamTournament = models.ForeignKey('TeamTournament', on_delete=models.CASCADE)
+    TEAM_CHOICES = ((teamTournament, 'test'),)
+    GolfTeamsPlayingMatch = models.ManyToManyField(GolfTeam,choices=TEAM_CHOICES)
