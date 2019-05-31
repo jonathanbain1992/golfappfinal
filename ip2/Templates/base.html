@@ -1,69 +1,113 @@
-{% load staticfiles %}
-{%load static%}
-<html>
-<head>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="{%static 'css/materialize.css'%}"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <!-- Use unicode -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  
+    {% block headblock %} {% endblock %}
 
-  <link href= "{%static 'css/materialize.css'%}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <title>
+      {% block titleblock %} Palacerigg Golf Club {% endblock %}
+    </title>
+  </head>
 
-</head>
-<body>
-<!-- navagaton bar -->
-<nav class="green darken-4" role="navigation">
-  <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo yellow-text">Palacerigg Golf Club</a>
-    <ul class="right hide-on-med-and-down">
-      <li><a class='yellow-text'href="#">Sign Up / Register</a></li>
-    </ul>
+  {% block navbarblock %}
+  <!-- Override to remove navbar -->
+  <!-- navigation bar -->
+  <nav class="green darken-4" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo yellow-text"
+        >Palacerigg Golf Club</a
+      >
+      <ul class="right hide-on-med-and-down">
+        <li><a class="yellow-text" href="#">Sign Up / Register</a></li>
+      </ul>
 
-    <ul id="nav-mobile" class="sidenav">
-      <li><a href="#">About Us</a></li>
-    </ul>
-    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">Profile Stuff To Go Here...</i></a>
-  </div>
-</nav>
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">About Us</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"
+        ><i class="material-icons">Profile Stuff To Go Here...</i></a
+      >
+    </div>
+  </nav>
+  {% endblock %}
+  <!-- End navbarblock -->
+
   <body style="background-image: url({%static 'images/15th-Green-View.jpg'%})">
-   {%block bodyblock%}
-   {%endblock%}
- </body>
+    {%block bodyblock%} {%endblock%}
+  </body>
 
-   <footer class="page-footer green darken-4">
-     <div class="container">
-       <div class="row">
-         <div class="col l6 s12">
-           <h5 class="white-text">About Us</h5>
-           <p class="grey-text text-lighten-4">We are a popular golf club in the Cumbernauld area within the immediate vicinity of the stunning Palacerigg Country Park with access to a full sized, high quality, 18-hole golf course. There is of course, an active golf club resident on the course with a vibrant club house manned by a micture of passionate staff as well as volunteers. Be sure to pay a visit to our warm and friendly bar / bistro for some much needed refreshment after your time on the course as we're sure you'll need it!</p>
+  {% block footerblock %}
+  <footer class="page-footer green darken-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">About Us</h5>
+          <p class="grey-text text-lighten-4">
+            We are a popular golf club in the Cumbernauld area within the
+            immediate vicinity of the stunning Palacerigg Country Park with
+            access to a full sized, high quality, 18-hole golf course. There is
+            of course, an active golf club resident on the course with a vibrant
+            club house manned by a micture of passionate staff as well as
+            volunteers. Be sure to pay a visit to our warm and friendly bar /
+            bistro for some much needed refreshment after your time on the
+            course as we're sure you'll need it!
+          </p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">General Information</h5>
+          <ul>
+            <li>
+              <a class="white-text" href="#!">End User License Agreement</a>
+            </li>
+            <li><a class="white-text" href="#!">Copyright</a></li>
+            <li>
+              <a class="white-text" href="#!"
+                >Jonathan Bain, our web-app developer.</a
+              >
+            </li>
+            <li>
+              <a class="white-text" href="#!">North Lanarkshire Council</a>
+            </li>
+            <li><a class="white-text" href="#!">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Help / User Guide</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Tutorials</a></li>
+            <li><a class="white-text" href="#!">How To...</a></li>
+            <li><a class="white-text" href="#!">F.A.Q.</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="white-text">
+          Copyright Ⓒ <a href="#" class="white-text">Palacerigg Golf Club</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  {% endblock %}
+  <!-- End footerblock -->
+  <script src="{%static 'js/materialize.js'%}"></script>
+  <script src="{%static 'js/jquery1.4.1.js'%}"></script>
 
-
-         </div>
-         <div class="col l3 s12">
-           <h5 class="white-text">General Information</h5>
-           <ul>
-             <li><a class="white-text" href="#!">End User License Agreement</a></li>
-             <li><a class="white-text" href="#!">Copyright</a></li>
-             <li><a class="white-text" href="#!">Jonathan Bain, our web-app developer.</a></li>
-             <li><a class="white-text" href="#!">North Lanarkshire Council</a></li>
-             <li><a class="white-text" href="#!">Privacy Policy</a></li>
-           </ul>
-         </div>
-         <div class="col l3 s12">
-           <h5 class="white-text">Help / User Guide</h5>
-           <ul>
-             <li><a class="white-text" href="#!">Tutorials</a></li>
-             <li><a class="white-text" href="#!">How To...</a></li>
-             <li><a class="white-text" href="#!">F.A.Q.</a></li>
-
-           </ul>
-         </div>
-       </div>
-     </div>
-     <div class="footer-copyright">
-       <div class="container">
-    <div class="white-text">   Copyright Ⓒ <a href="#" class="white-text">Palacerigg Golf Club</a> </div>
-       </div>
-     </div>
-   </footer>
-
-     <script src="{%static 'js/materialize.js'%}"></script>
-      <script src="{%static 'js/jquery1.4.1.js'%}"></script>
-</body>
+  {% block extrajs %} {% endblock %}
 </html>
