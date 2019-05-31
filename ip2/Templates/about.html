@@ -1,0 +1,75 @@
+{% extends "base.html" %} {% load static %} {% block titleblock %} - {{ title }}
+{% endblock %} {% block bodyblock %}
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12">
+        <div class="card" style="padding: 1em;"">
+        <h4>
+          About page
+        </h4>
+        <p>
+          We're a golf club located in Cumbernauld, North Lanarkshire.
+        </p>
+        <div style="text-align: center">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4469.4773703304245!2d-3.9441188357885952!3d55.93656788822838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48886f9af1e65c47%3A0xf5cb46e7d726d07f!2sPalacerigg+Golf+Club!5e0!3m2!1sen!2suk!4v1559336825019!5m2!1sen!2suk"
+            width="600"
+            height="450"
+            frameborder="0"
+            style="border:0; margin-left: auto; margin-right:auto"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>
+                Regarding
+              </th>
+              <th>
+                Contact
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                General Enquiries, Membership Enquiries, Visiting Parties
+              </td>
+              <td>
+                secretary@palacerigg.co.uk or Tel: 01236 734969
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Fixtures, Handicaps, Open Competition Entries
+              </td>
+              <td>
+                matchsecretary@palacerigggolfclub.co.uk
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Junior Membership, Fixtures, Coaching
+              </td>
+              <td>
+                juniors@palacerigg.co.uk
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Ladies fixtures and Handicaps
+              </td>
+              <td>
+                ladies@palacerigggolfclub.co.uk
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

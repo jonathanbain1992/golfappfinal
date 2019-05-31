@@ -24,5 +24,5 @@ urlpatterns = [
     url(r'^signinregister',views.SignInRegister),
     url(r'^profile', views.Profile),
     url(r'^scoreboard', views.ScoreBoard),
-    url(r'^quiz',views.Quiz),
+    url(r'^$', views.Index) # Redirect to the index page by default
 ]

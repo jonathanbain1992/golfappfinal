@@ -15,16 +15,16 @@ def Index(View):
     return render_to_response('index.html',context_dict)
 
 def About(View):
-    return HttpResponse("about page")
+    context = {"title": "About"}
+    return render_to_response("about.html", context)
 
 def SignInRegister(View):
-    return HttpResponse("sign in or register ")
+    return render_to_response("maintenance.html", {})
 
 def Profile(View):
-    return HttpResponse("profile")
+    context = { "title": "Under construction"}
+    return render_to_response("maintenance.html", context=context)
 
 def ScoreBoard(View):
-    return HttpResponse("example scoreboard")
+    return render_to_response("scoreboard.html", {})
 
-def Quiz(View):
-    return HttpResponse("quiz page")
