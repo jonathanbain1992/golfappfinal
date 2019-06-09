@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from django.template.defaultfilters import slugify
 from django.db import models
 
 # Create your models here.
@@ -117,6 +117,12 @@ class TeamTournament(models.Model):
     tournamentName = models.CharField(max_length=200)
     tournament = models.ForeignKey('Tournament', on_delete=models.CASCADE)
     GolfTeams = models.ManyToManyField('GolfTeam')
+    slug = models.SlugField()
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.tournamentName)
+        super(TeamTournament, self).save(*args, **kwargs)
+
 
     #@XXX: yesss, yess, yes, I know this code is an absolute steaming pile of crap, but I was going insane
     #      parsing this string out and it was a hot day, adding to my frustration so go on, laugh, It's okay, I'm okay

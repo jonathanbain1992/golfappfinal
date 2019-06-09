@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render,render_to_response
 from django.template import RequestContext
+from ip2app.models import Tournament, TeamTournament
+
 
 from django.http import HttpResponse
 from django.views import View
@@ -27,4 +29,14 @@ def Profile(View):
 
 def ScoreBoard(View):
     return render_to_response("scoreboard.html", {})
+
+class Tournament(View):
+    def get(self, request, name):
+        context = {}
+        try:
+            team_tournament = TeamTournament.objects.get(slug=name)
+            context['team_tournament'] = team_tournament
+        except:
+            pass
+        return render_to_response("tournament.html", context=context)
 

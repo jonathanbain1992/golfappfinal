@@ -19,10 +19,11 @@ from ip2app import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^index/', views.Index),
+    url(r'^index/', views.Index, name="index"),
     url(r'^about/', views.About),
     url(r'^signinregister',views.SignInRegister),
     url(r'^profile', views.Profile),
     url(r'^scoreboard', views.ScoreBoard),
+    url(r'^tournament/(?P<name>[\w\-]+)/$', views.Tournament.as_view()),
     url(r'^$', views.Index) # Redirect to the index page by default
 ]

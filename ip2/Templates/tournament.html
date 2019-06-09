@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block bodyblock %}
+    {% if team_tournament %}
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card" style="opacity:0.9; padding: 1em;">
+            
+            <h3>{{team_tournament.tournamentName}}</h3>
+            <div class="row">
+                <div class="col s6">
+                    <h5>{{team_tournament.tournament.dateTimeStart}}</h5>
+                </div>
+                <div class="col s6">
+                    <h5>{{team_tournament.tournament.dateTimeFinish}}</h5>
+                </div>
+            </div>
+            <table>
+            <thead>
+                <tr>
+                    <th>Participating Teams</th>
+                </tr>
+            </thead>
+                <tbody>
+                    {% for team in team_tournament.GolfTeams.all %}
+                        <tr><td>{{team.teamName}}</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    {% else %}
+    {% endif %}
+{% endblock %}
