@@ -49,6 +49,12 @@ class GolfTeam(models.Model):
     teamName = models.CharField(max_length=200)
     teamEstablished = models.DateField(auto_now=False)
     isBanned = models.BooleanField(default=False)
+    slug = models.SlugField()
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.teamName)
+        super(GolfTeam, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.teamName
 

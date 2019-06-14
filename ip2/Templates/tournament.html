@@ -26,7 +26,11 @@
             </thead>
                 <tbody>
                     {% for team in team_tournament.GolfTeams.all %}
-                        <tr><td>{{team.teamName}}</td></tr>
+                        <tr>
+                            <td>
+                            <a href="{% url 'golf_team' team.slug %}">{{team.teamName}}</a>
+                            </td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>

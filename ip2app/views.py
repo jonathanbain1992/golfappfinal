@@ -30,13 +30,26 @@ def Profile(View):
 def ScoreBoard(View):
     return render_to_response("scoreboard.html", {})
 
-class Tournament(View):
-    def get(self, request, name):
-        context = {}
-        try:
-            team_tournament = TeamTournament.objects.get(slug=name)
-            context['team_tournament'] = team_tournament
-        except:
-            pass
-        return render_to_response("tournament.html", context=context)
+def tournament(request, name):
+    context = {}
+    try:
+        team_tournament = TeamTournament.objects.get(slug=name)
+        context['team_tournament'] = team_tournament
+    except:
+        pass
+    return render_to_response("tournament.html", context=context)
 
+    
+def tournament_list(request):
+    context = {}
+    try:
+        team_tournaments = TeamTournament.objects.all().order_by(
+            "-tournament__dateTimeStart"
+        )
+        context['team_tournaments'] = team_tournaments
+    except:
+        pass
+    return render_to_response("tournamentlist.html", context)
+
+def golf_team(request, name):
+    return render_to_response("maintenance.html", {})

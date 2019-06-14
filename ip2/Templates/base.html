@@ -107,7 +107,8 @@
   {% endblock %}
   <!-- End footerblock -->
   <script src="{%static 'js/materialize.js'%}"></script>
-  <script src="{%static 'js/jquery1.4.1.js'%}"></script>
+  <script src="{% static 'js/jquery1.4.1.js' %}"></script>
 
-  {% block extrajs %} {% endblock %}
+    {% block extrajs %}{% endblock %}
+  
 </html>

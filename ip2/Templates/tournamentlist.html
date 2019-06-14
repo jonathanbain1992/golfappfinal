@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block bodyblock %}
+{% if team_tournaments %}
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12">
+                <div class="card" style="opacity:0.9; padding: 1em;">
+                <h3>Tournaments</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <td> Name </td>
+                            <td> Starting time </td>
+                            <td> Finishing time </td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for team_tournament in team_tournaments %}
+                        <tr id="{{team_tournament.slug}}">
+                            <td>
+                            <a href="{% url 'tournament' team_tournament.slug %}">
+                                {{team_tournament.tournamentName}}
+                            </a>
+                            </td>
+                            <td>
+                                {{team_tournament.tournament.dateTimeStart}}
+                            </td>
+                            <td>
+                                {{team_tournament.tournament.dateTimeFinish}}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block extrajs %}
+
+  $(document).ready(function(){
+    {% if team_tournaments %}
+        {% for team_tournament in team_tournaments %}
+            $('#{{team_tournament.slug}}').attr('href', '{% url 'tournament' team_tournament.slug %}');
+        {% endfor %}
+    {% endif %}
+  });
+{% endblock %}
