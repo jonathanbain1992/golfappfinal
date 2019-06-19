@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block bodyblock %}
+{% if team %}
+    <div class="row">
+        <div class="col s8">
+            <h3 style="font-style: italic">{{team.teamName}}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <h5>{{team.teamClub}}</h5>
+        </div>
+        <div class="col s4">
+            <h5>Established {{team.teamEstablished}}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        {% if members %}
+        <table>
+            <thead>
+                <tr>
+                    <td>Team Members</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for golfer in members%}
+                    <tr>
+                        <td> {{golfer.firstName}} {{golfer.secondName}} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>There are no golfers in this team</p>
+        {% endif %}
+    </div>
+{% else %}
+    <h1>Sorry!</h1>
+    <p>Team not found!</p>
+{% endif %}
+{% endblock %}

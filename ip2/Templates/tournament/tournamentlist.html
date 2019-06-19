@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block headblock %}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+
+{% block bodyblock %}
+<div class="collection with-header">
+        <div class="collection-header">
+            <h5>Tournaments</h5>
+        </div>
+        <a id="add-tournament" class="collection-item" href="#"
+            style="text-align: center">
+            <i class="material-icons">add</i>
+        </a>
+{% if team_tournaments %}
+    {% for team_tournament in team_tournaments %}
+    <a id="{{team_tournament.slug}}" class="collection-item" 
+        href="{% url 'tournament' team_tournament.slug %}">
+        {{team_tournament.tournamentName}}, {{team_tournament.tournament.dateTimeStart}}
+    </a>
+            {% endfor %}
+{% endif %}
+</div>
+{% endblock %}
+
+
+

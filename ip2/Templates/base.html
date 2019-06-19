@@ -48,7 +48,17 @@
   <!-- End navbarblock -->
 
   <body style="background-image: url({%static 'images/15th-Green-View.jpg'%})">
-    {%block bodyblock%} {%endblock%}
+    <div class="container">
+      <div class="section">
+        <div class="row">
+          <div class="col s12">
+            <div class="card" style="opacity:0.9; padding: 1em;">
+              {% block bodyblock%} {%endblock%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 
   {% block footerblock %}

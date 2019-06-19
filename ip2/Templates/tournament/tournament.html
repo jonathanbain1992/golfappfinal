@@ -3,12 +3,6 @@
 
 {% block bodyblock %}
     {% if team_tournament %}
-    <div class="container">
-        <div class="section">
-            <div class="row">
-                <div class="col s12">
-                    <div class="card" style="opacity:0.9; padding: 1em;">
-            
             <h3>{{team_tournament.tournamentName}}</h3>
             <div class="row">
                 <div class="col s6">
@@ -34,11 +28,7 @@
                     {% endfor %}
                 </tbody>
             </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+     
 
 
     {% else %}

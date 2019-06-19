@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render,render_to_response
 from django.template import RequestContext
-from ip2app.models import Tournament, TeamTournament
+from ip2app.models import Tournament, TeamTournament, GolfTeam, GolfPlayer
 
 
 from django.http import HttpResponse
@@ -37,7 +37,7 @@ def tournament(request, name):
         context['team_tournament'] = team_tournament
     except:
         pass
-    return render_to_response("tournament.html", context=context)
+    return render_to_response("tournament/tournament.html", context=context)
 
     
 def tournament_list(request):
@@ -49,7 +49,15 @@ def tournament_list(request):
         context['team_tournaments'] = team_tournaments
     except:
         pass
-    return render_to_response("tournamentlist.html", context)
+    return render_to_response("tournament/tournamentlist.html", context)
 
 def golf_team(request, name):
-    return render_to_response("maintenance.html", {})
+    context = {}
+    try:
+        team = GolfTeam.objects.get(slug=name)
+        context['team'] = team
+        members = GolfPlayer.objects.filter(golfTeam=team)
+        context['members'] = members
+    except:
+        pass
+    return render_to_response("team/golf_team.html", context)
