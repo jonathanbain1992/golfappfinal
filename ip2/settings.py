@@ -19,7 +19,7 @@ TEMPLATE_PATH = os.path.join(PROJECT_PATH,'ip2/Templates')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_PATH = os.path.join(BASE_DIR,'ip2/static')
+STATIC_PATH = os.path.join(BASE_DIR,'ip2','static')
 
 
 # Quick-start development settings - unsuitable for production
@@ -123,6 +123,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/' # You may find this is already defined as such.
+
 
 STATICFILES_DIRS = (
     STATIC_PATH,

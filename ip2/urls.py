@@ -25,6 +25,8 @@ urlpatterns = [
     url(r'^profile', views.Profile),
     url(r'^scoreboard', views.ScoreBoard),
     url(r'^tournament/(?P<name>[\w\-]+)', views.tournament, name="tournament"),
+    url(r'^add/tournament', views.add_tournament, name="add_tournament"),
+    url(r'^add/team', views.add_team, name="add_team"),
     url(r'^tournament', views.tournament_list, name="tournament_list"),
     url(r'^team/(?P<name>[\w\-]+)', views.golf_team, name="golf_team" ),
     url(r'^$', views.Index) # Redirect to the index page by default

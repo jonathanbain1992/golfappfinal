@@ -111,17 +111,12 @@ class GolfPlayer(models.Model):
     def __str__(self):
         return self.firstName+" "+self.secondName+", "+self.golfTeam.teamName+", "+self.golfTeam.teamClub.clubName
 
-class Tournament(models.Model):
-    dateTimeStart = models.DateTimeField(auto_now=False)
-    dateTimeFinish = models.DateTimeField(auto_now=False)
+class TeamTournament(models.Model):
+    dateTimeStart = models.DateTimeField(auto_now=False, null=True)
+    dateTimeFinish = models.DateTimeField(auto_now=False, null=True)
     tournamentNotes = models.TextField(max_length=800)
 
-    def __str__(self):
-        return str(self.pk)
-
-class TeamTournament(models.Model):
     tournamentName = models.CharField(max_length=200)
-    tournament = models.ForeignKey('Tournament', on_delete=models.CASCADE)
     GolfTeams = models.ManyToManyField('GolfTeam')
     slug = models.SlugField()
 

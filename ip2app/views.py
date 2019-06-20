@@ -3,12 +3,12 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render,render_to_response
 from django.template import RequestContext
-from ip2app.models import Tournament, TeamTournament, GolfTeam, GolfPlayer
+from ip2app.models import TeamTournament, GolfTeam, GolfPlayer
 
 
 from django.http import HttpResponse
 from django.views import View
-
+from ip2app.forms import TeamTournamentForm, GolfTeamForm
 
 # Create your views here.
 def Index(View):
@@ -44,7 +44,7 @@ def tournament_list(request):
     context = {}
     try:
         team_tournaments = TeamTournament.objects.all().order_by(
-            "-tournament__dateTimeStart"
+            "-dateTimeStart"
         )
         context['team_tournaments'] = team_tournaments
     except:
@@ -61,3 +61,36 @@ def golf_team(request, name):
     except:
         pass
     return render_to_response("team/golf_team.html", context)
+
+
+def add_team(request):
+    if request.method =="POST":
+        form = GolfTeamForm(request.POST)
+        if form.is_valid():
+            team = form.save(commit=True)
+            return golf_team(request, form['teamName'])
+        else:
+            print(form.errors)
+    else:
+        form = GolfTeamForm()
+    return render(request, 'team/add_team.html', {'form': form})
+
+
+def add_tournament(request):
+    if request.method == "POST":
+        form_tournament = TeamTournamentForm(request.POST)
+        if form_tournament.is_valid():
+            form_tournament.dateTimeStart = None
+            form_tournament.dateTimeFinish = None
+            form_tournament.save()
+            print("Success: tournament created!")
+            return tournament_list(request)
+        else:
+            print(form_tournament.errors)
+    else:
+        form_tournament = TeamTournamentForm()
+    return render(request, 'tournament/add_tournament.html', 
+                    {
+                        'form_tournament': form_tournament,
+                    }
+    )

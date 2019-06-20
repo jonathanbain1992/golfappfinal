@@ -10,7 +10,7 @@
         <div class="collection-header">
             <h5>Tournaments</h5>
         </div>
-        <a id="add-tournament" class="collection-item" href="#"
+        <a id="add-tournament" class="collection-item" href="{% url 'add_tournament'%}"
             style="text-align: center">
             <i class="material-icons">add</i>
         </a>
@@ -18,9 +18,9 @@
     {% for team_tournament in team_tournaments %}
     <a id="{{team_tournament.slug}}" class="collection-item" 
         href="{% url 'tournament' team_tournament.slug %}">
-        {{team_tournament.tournamentName}}, {{team_tournament.tournament.dateTimeStart}}
+        {{team_tournament.tournamentName}}, {{team_tournament.dateTimeStart}}
     </a>
-            {% endfor %}
+    {% endfor %}
 {% endif %}
 </div>
 {% endblock %}

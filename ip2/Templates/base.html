@@ -19,6 +19,15 @@
   
     {% block headblock %} {% endblock %}
 
+
+    <script type="text/javascript"
+    src="{% static 'js/materialize.js' %}"></script>
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
     <title>
       Palacerigg Golf Club {% block titleblock %}{% endblock %}
     </title>
@@ -52,13 +61,23 @@
       <div class="section">
         <div class="row">
           <div class="col s12">
-            <div class="card" style="opacity:0.9; padding: 1em;">
+            <div class="card" style="opacity:0.9; padding: 1em; margin:0.1em">
               {% block bodyblock%} {%endblock%}
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
+    {% block extrajs %}{% endblock %}
+ 
+  <script>
+    $(document).ready(function(){
+      M.AutoInit();
+    });
+  </script>
+
   </body>
 
   {% block footerblock %}
@@ -116,9 +135,5 @@
   </footer>
   {% endblock %}
   <!-- End footerblock -->
-  <script src="{%static 'js/materialize.js'%}"></script>
-  <script src="{% static 'js/jquery1.4.1.js' %}"></script>
-
-    {% block extrajs %}{% endblock %}
   
 </html>
